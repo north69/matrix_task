@@ -22,11 +22,12 @@ class MatrixGenerator
 
     private function getRandomInt(array $existed_items): int
     {
-        $item = rand(1, self::MAX_RANDOM_INT);
-        if (!in_array($item, $existed_items)) {
-            return $item;
+        while (true) {
+            $item = rand(1, self::MAX_RANDOM_INT);
+            if (!in_array($item, $existed_items)) {
+                return $item;
+            }
         }
-        return $this->getRandomInt($existed_items);
     }
 }
 
